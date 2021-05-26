@@ -14,17 +14,18 @@ run_container: "cifuzz/builders:maven"
 
 ## A relative path to the build script that executes inside the container
 ## and builds the project. Relative to the project root directory.
-build_script: ".code-intelligence/build.sh"
+# build_script: ".code-intelligence/build.sh"
 
 ## Paths to the fuzz tests to execute
 fuzz_tests:
-  - .code-intelligence/fuzz_targets/all_controllers.java
-  - .code-intelligence/fuzz_targets/sql_injection.java
+
+## Paths to web app fuzz target configs
+web_app_target_configs:
 
 ## The sanitizers to use for the fuzz tests
 ## By default, only address sanitizer is used.
-sanitizers:
-  - address
+# sanitizers:
+#  - address
 
 ## The fuzzing engines to use for the fuzz tests
 ## By default, only libfuzzer is used. Note that because Java and Go
@@ -36,8 +37,8 @@ sanitizers:
 ## The run time after which the fuzz tests are cancelled and
 ## considered as having passed. Default value is 30 minutes.
 runtime: "30m0s"
-
 ## The number of parallel executions per fuzz test
-parallel_executions: 1
+# parallel_executions: 1
+
 ## If true, do not initialize the seed corpus of the fuzz tests.
 # skip_initial_corpus: false
