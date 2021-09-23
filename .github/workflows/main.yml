@@ -34,7 +34,7 @@ jobs:
           cache: 'maven'
 
       - name: Build with Maven
-        run: mvn clean package -DskipTests -Drat.skip=true --batch-mode
+        run: mvn clean package -DskipTests --batch-mode
         working-directory: complete
 
       - name: 'Deploy to Azure WebApp'
