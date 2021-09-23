@@ -30,7 +30,7 @@ jobs:
         # If your pom.xml <maven.compiler.source> version is not in 1.8.x,
         # change the Java version to match the version in pom.xml <maven.compiler.source>
           java-version: '11'
-          distribution: 'zulu'
+          distribution: 'adopt'
           cache: 'maven'
 
       - name: Build with Maven
