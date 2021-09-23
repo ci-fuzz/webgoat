@@ -21,6 +21,9 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: setup Java 11
         uses: actions/setup-java@v2
         with:
@@ -29,9 +32,6 @@ jobs:
           java-version: '11'
           distribution: 'zulu'
           cache: 'maven'
-
-      - name: Checkout repository
-        uses: actions/checkout@v2
 
       - name: Build with Maven
         run: mvn clean package -DskipTests -Drat.skip=true --batch-mode
