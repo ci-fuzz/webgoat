@@ -30,6 +30,8 @@ jobs:
 
       - name: Build with Maven
         run: |
+            #set port 80, as Azure does not support 8080:
+            sed -i 's/8080/80/g' webgoat-container/src/main/resources/application-webgoat.properties
             mvn clean package -DskipTests --batch-mode --file pom.xml
 
       - name: Login
@@ -88,4 +90,10 @@ jobs:
           git_reference: ${{ github.sha }}
           fuzzing_server_address: ${{ env.FUZZING_SERVER_ADDRESS }}
           dashboard_address: ${{ env.WEB_APP_ADDRESS }}
+
+       - name: Remove runner IP whitelist entry
+        uses: azure/CLI@v1
+        with:
+          inlineScript: |
+            az webapp config access-restriction remove -g CI-Fuzz -n webgoatfuzzing --rule-name githubactions
           
