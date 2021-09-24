@@ -91,7 +91,7 @@ jobs:
           fuzzing_server_address: ${{ env.FUZZING_SERVER_ADDRESS }}
           dashboard_address: ${{ env.WEB_APP_ADDRESS }}
 
-       - name: Remove runner IP whitelist entry
+      - name: Remove runner IP whitelist entry
         uses: azure/CLI@v1
         with:
           inlineScript: |
