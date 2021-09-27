@@ -9,6 +9,8 @@
 
 # Introduction
 
+This is an example change. We want to create a pull request and showcase how fuzzing is triggered.
+
 WebGoat is a deliberately insecure web application maintained by [OWASP](http://www.owasp.org/) designed to teach web
 application security lessons.
 
